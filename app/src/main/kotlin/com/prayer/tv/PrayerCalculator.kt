@@ -85,9 +85,7 @@ object PrayerCalculator {
         if (t.isNaN()) return "--:--"
         val total = ((t % 24 + 24) % 24)
         val h = total.toInt()
-        val m = ((total - h) * 60).roundToInt().coerceIn(0, 59)
+        val m = (((total - h) * 60).toInt()).coerceIn(0, 59)
         return "%02d:%02d".format(h, m)
     }
 }
-
-fun Double.roundToInt() = kotlin.math.roundToInt(this)
